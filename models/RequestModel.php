@@ -9,7 +9,7 @@
         }
 
         public function index(){
-            $sql = "SELECT `requests`.`id`, `code`, `description`, `summary`, `employees_id`, `name` FROM `requests` INNER JOIN `employees` ON `requests`.`employees_id` = `employees`.`id` LIMIT 0, 1000";
+            $sql = "SELECT `requests`.`id`, `code`, `description`, `summary`, `employees_id`, `name` FROM `requests` INNER JOIN `employees` ON `requests`.`employees_id` = `employees`.`id`";
             $result = $this->db->query($sql);
             while($row = $result->fetch_assoc()){
                 $this->requests[] = $row;
@@ -19,7 +19,7 @@
 
         // INNER JOIN `requests` ON `id` = `employees_id`
         public function show($id){
-            $sql = "SELECT `id`, `code`, `description`, `summary`, `employees_id` FROM `requests` WHERE id = '$id' LIMIT 1";
+            $sql = "SELECT `requests`.`id`, `code`, `description`, `summary`, `employees_id`, `name` FROM `requests` INNER JOIN `employees` ON `requests`.`employees_id` = `employees`.`id` WHERE `requests`.`id` = '$id' LIMIT 1";
             $result = $this->db->query($sql);
             return $result->fetch_assoc();
         }
@@ -29,8 +29,8 @@
             $this->db->query($sql);
         }
 
-        public function update($id, $code, $description, $summary, $employees_id){
-            $sql = "UPDATE `requests` SET `code` = '$code', `description` = '$description', `summary` = '$summary', `employees_id` = '$employees_id' WHERE `id` = '$id'";
+        public function update($id, $code, $description, $summary){
+            $sql = "UPDATE `requests` SET `code` = '$code', `description` = '$description', `summary` = '$summary' WHERE `id` = '$id'";
             $this->db->query($sql);
         }
 

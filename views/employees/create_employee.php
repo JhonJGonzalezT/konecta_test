@@ -6,8 +6,11 @@
     <h2><?php echo $data['title'];?></h2>
     <div class="row">
         <div class="col-md-5">
+            <div class="mb-2 mt-2">
+                <a class='btn btn-outline-primary' href="index.php?controller=employee&action=index" >Atras</a>
+            </div>
             <div class="card card-body mb-3">
-                <form id="create_vehicle" name="create_vehicle" method="post" action="index.php?controller=employee&action=store">
+                <form id="create_employee" name="create_employee" method="post" action="index.php?controller=employee&action=store">
                     <div class="form-group mb-2">
                         <input class="form-control" type="text" id = "name" name = "name" placeholder="Nombre Completo" required>
                     </div>

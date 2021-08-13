@@ -7,11 +7,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="mb-2 mt-2">
-                <a class='btn btn-outline-primary' href="index.php?controller=request&action=view_create" >Agregar</a>
+                <a class='btn btn-outline-primary' href="index.php?controller=employee&action=index" >Ver empleados</a>
             </div>
+            <!-- <div class="mb-2 mt-2">
+                <a class='btn btn-outline-primary' href="index.php?controller=request&action=view_create" >Agregar</a>
+            </div> -->
             <table class="table table-bordered">
                 <thead>
                 <tr>
+                    <th hidden>ID</th>
                     <th>Código</th>
                     <th>Descripción</th>
                     <th>Resumen</th>
@@ -25,6 +29,7 @@
                 <?php
                 foreach ($data['requests'] as $request){
                     echo '<tr>';
+                    echo '<td hidden>'.$request['id'].'</td>';
                     echo '<td>'.$request['code'].'</td>';
                     echo '<td>'.$request['description'].'</td>';
                     echo '<td>'.$request['summary'].'</td>';

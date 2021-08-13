@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="mb-2 mt-2">
-                <a class='btn btn-outline-primary' href="index.php?controller=employee&action=view_create" >Agregar</a>
+                <a class='btn btn-outline-primary' href="index.php?controller=request&action=index" >Ver solicitudes</a>
+            </div>
+            <div class="mb-2 mt-2">
+                <a class='btn btn-outline-primary' href="index.php?controller=employee&action=view_create" >Agregar empleado</a>
             </div>
             <table class="table table-bordered">
                 <thead>
@@ -18,6 +21,7 @@
                     <th>Fecha de Ingreso</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
+                    <th>Solicitud</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,6 +41,7 @@
                                 </a>
                           </td>";
                     echo "<td><a href='index.php?controller=employee&action=destroy&id=".$employee['id']."'>Eliminar</a></td>";
+                    echo "<td><a href='index.php?controller=request&action=view_create&id=".$employee['id']."'>crear</a></td>";
                     echo '</tr>';
                 }
                 ?>
